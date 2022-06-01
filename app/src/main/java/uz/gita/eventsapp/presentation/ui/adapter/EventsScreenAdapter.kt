@@ -26,11 +26,9 @@ class EventsScreenAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
-            binding.container.setOnLongClickListener {
+            binding.container.setOnClickListener {
                 val data = getItem(absoluteAdapterPosition)
-                val state = data.eventState
                 onLongClickItemListener?.invoke(data.id)
-                return@setOnLongClickListener true
             }
         }
 

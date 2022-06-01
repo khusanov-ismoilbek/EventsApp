@@ -2,44 +2,83 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="350dp"
+    android:layout_height="220dp"
     android:layout_margin="16dp"
+    app:cardBackgroundColor="#1C1C1C"
     app:cardCornerRadius="16dp">
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="350dp"/>
+        android:layout_height="220dp" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginBottom="24dp"
-        android:textSize="20sp"
-        android:text="Are you sure delete this Action"/>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/yes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="16dp"
-        android:text="yes"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center|bottom">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/no"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="16dp"
-        android:text="no"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="@string/delete_text"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/shape_button"
+                    android:paddingHorizontal="24dp"
+                    android:paddingVertical="4dp"
+                    android:text="@string/no"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/shape_button"
+                    android:paddingHorizontal="24dp"
+                    android:paddingVertical="4dp"
+                    android:text="@string/yes"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.cardview.widget.CardView>

@@ -45,7 +45,7 @@ class EventService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
-//        receiver.clearReceiver()
+        receiver.clearReceiver()
         unregisterReceiver(receiver)
     }
 

@@ -13,4 +13,7 @@
     <string name="cancel">CANCEL</string>
     <string name="ok">OK</string>
     <string name="enabled">Enabled</string>
+    <string name="delete_text">Are you sure delete this Action</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Events App</string>
+    <string name="events">Events</string>
+    <string name="more">More</string>
+    <string name="screen_on">Screen on</string>
+    <string name="screen_off">Screen off</string>
+    <string name="battery_charging_on">Battery charging on</string>
+    <string name="battery_charging_off">Battery charging off</string>
+    <string name="power_connected">Power connected</string>
+    <string name="power_disconnected">Power disconnected</string>
+    <string name="storage_low">Device storage low</string>
+    <string name="assign_sound">Assign Sound</string>
+    <string name="cancel">CANCEL</string>
+    <string name="ok">OK</string>
+    <string name="enabled">Enabled</string>
+</resources>

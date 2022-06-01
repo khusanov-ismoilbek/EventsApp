@@ -3,6 +3,7 @@ package uz.gita.eventsapp.presentation.ui.screens
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -26,13 +27,17 @@ class EventsScreen : Fragment(R.layout.screen_events) {
     private val viewModel: EventViewModel by viewModels<EventViewModelImpl>()
     private val adapter = EventsScreenAdapter()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.onClickAddDialogLiveData.observe(this, onClickAddDialogObserver)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.getAllEnableEventsLiveData.observe(viewLifecycleOwner, getAllEnableEventsObserver)
+        viewModel.setOnClickAddDialogLiveDataListener {
+            val addDialog = AddDialog()
+
+            addDialog.setOnClickOkClickListener {
+                viewModel.onCLickOkBtnOfAddDialog()
+            }
+
+            addDialog.show(childFragmentManager, "AddDialog")
+        }
 
         binding.floatingActionButton.setOnClickListener {
             viewModel.onClickAddDialogButton()

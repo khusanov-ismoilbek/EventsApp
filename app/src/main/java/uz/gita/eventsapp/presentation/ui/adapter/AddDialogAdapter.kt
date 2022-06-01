@@ -29,13 +29,22 @@ class AddDialogAdapter :
 
         init {
             binding.container.setOnClickListener {
-                if (selected > -1) {
+                if (selected > -1 && selected != absoluteAdapterPosition) {
+                    getItem(selected).eventState = 0
+                    notifyItemChanged(selected)
+                }
+
+                selected = absoluteAdapterPosition
+                binding.eventDialogRadioButton.isChecked = true
+                onClickItemListener?.invoke(getItem(absoluteAdapterPosition).id)
+            }
+            binding.eventDialogRadioButton.setOnClickListener {
+                if (selected > -1 && selected != absoluteAdapterPosition) {
                     getItem(selected).eventState = 0
                     notifyItemChanged(selected)
                     selected = absoluteAdapterPosition
                 }
 
-                selected = absoluteAdapterPosition
                 binding.eventDialogRadioButton.isChecked = true
                 onClickItemListener?.invoke(getItem(absoluteAdapterPosition).id)
             }

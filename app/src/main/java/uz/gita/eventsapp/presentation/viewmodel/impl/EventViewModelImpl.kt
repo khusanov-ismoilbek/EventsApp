@@ -21,11 +21,12 @@ class EventViewModelImpl
         loadEventData()
     }
 
+    private var onClickAddDialogLiveDataListener: (() -> Unit)? = null
     override val getAllEnableEventsLiveData = MutableLiveData<List<EventsData>>()
-    override val onClickAddDialogLiveData = MutableLiveData<Unit>()
 
+    //    override val onClickAddDialogLiveData = MutableLiveData<Unit>()
     override fun onClickAddDialogButton() {
-        onClickAddDialogLiveData.value = Unit
+        onClickAddDialogLiveDataListener?.invoke()
     }
 
     override fun onCLickOkBtnOfAddDialog() {
@@ -40,10 +41,15 @@ class EventViewModelImpl
         }.launchIn(viewModelScope)
     }
 
+
     private fun loadEventData() {
         useCase.getAllEnableEvents().onEach {
             getAllEnableEventsLiveData.value = it
         }.launchIn(viewModelScope)
 
+    }
+
+    override fun setOnClickAddDialogLiveDataListener(block: () -> Unit) {
+        onClickAddDialogLiveDataListener = block
     }
 }

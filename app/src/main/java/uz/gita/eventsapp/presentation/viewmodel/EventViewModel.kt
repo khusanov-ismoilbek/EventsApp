@@ -5,9 +5,11 @@ import uz.gita.eventsapp.data.local.model.EventsData
 
 interface EventViewModel {
     val getAllEnableEventsLiveData: LiveData<List<EventsData>>
-    val onClickAddDialogLiveData: LiveData<Unit>
+//    val onClickAddDialogLiveData: LiveData<Unit>
 
     fun onClickAddDialogButton()
     fun onCLickOkBtnOfAddDialog()
     fun updateEventStateToDisable(eventId: Int)
+
+    fun setOnClickAddDialogLiveDataListener(block: () -> Unit)
 }

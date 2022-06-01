@@ -10,19 +10,18 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:layout_weight="5"
-        android:padding="16dp"
+        android:gravity="center|start"
+        android:padding="8dp"
         android:text="@string/enabled"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/closeButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
         android:layout_margin="8dp"
         android:layout_weight="1"
-        android:padding="16dp"
-        android:scaleType="centerCrop"
+        android:padding="8dp"
         android:src="@drawable/ic_close" />
 
 </LinearLayout>

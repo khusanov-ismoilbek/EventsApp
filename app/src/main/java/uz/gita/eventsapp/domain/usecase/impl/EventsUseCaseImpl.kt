@@ -1,6 +1,7 @@
 package uz.gita.eventsapp.domain.usecase.impl
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import uz.gita.eventsapp.data.local.model.EventsData
@@ -12,6 +13,8 @@ class EventsUseCaseImpl
 @Inject constructor(
     private val repository: AppRepository
 ) : EventsUseCase {
+    private var list: List<EventsData> = ArrayList()
+
     override fun getAllDisableEvents() = flow<List<EventsData>> {
         val result = repository.getAllDisableEvents().map {
             it.eventsEntityToEventsData()
@@ -41,4 +44,5 @@ class EventsUseCaseImpl
         }
         emit(result)
     }.flowOn(Dispatchers.IO)
+
 }

@@ -9,7 +9,6 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
 import android.os.IBinder
-import android.util.Log
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import uz.gita.eventsapp.MainActivity
@@ -75,7 +74,7 @@ class EventService : Service() {
         val notification = NotificationCompat
             .Builder(this, CHANNEL_ID)
             .setContentIntent(pendingIntent)
-            .setSmallIcon(R.drawable.ic_battery_low)
+            .setSmallIcon(R.drawable.logo)
             .setContentTitle("Event Sound")
             .setCustomContentView(createNotificationLayout())
             .build()
@@ -97,7 +96,7 @@ class EventService : Service() {
                 this,
                 1,
                 intent,
-                PendingIntent.FLAG_UPDATE_CURRENT
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
             )
     }
 }

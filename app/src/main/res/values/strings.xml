@@ -9,11 +9,25 @@
     <string name="power_connected">Power connected</string>
     <string name="power_disconnected">Power disconnected</string>
     <string name="storage_low">Device storage low</string>
+    <string name="text_airplane">Airplane mode</string>
+    <string name="text_battery_ok">Battery full</string>
+    <string name="text_battery_low">Battery low</string>
+    <string name="text_shut_down">Shut down</string>
+    <string name="text_time_zone_changed">Time zone changed</string>
+    <string name="text_time_changed">Time changed</string>
+    <string name="text_date_changed">Date changed</string>
+    <string name="wifi_connected">WIFI connected</string>
+    <string name="wifi_disconnected">WIFI disconnected</string>
     <string name="assign_sound">Assign Sound</string>
-    <string name="cancel">CANCEL</string>
+    <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
     <string name="enabled">Enabled</string>
     <string name="delete_text">Are you sure delete this action?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="enabled_all_events">\tEnabled all events</string>
+    <string name="disabled_all_events">\tDisabled all events</string>
+    <string name="share_app">\tShare app</string>
+    <string name="rate_app">\tRate app</string>
+    <string name="feedback">\tFeedback</string>
 </resources>

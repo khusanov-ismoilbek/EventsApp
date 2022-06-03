@@ -42,9 +42,9 @@ class AddDialogAdapter :
                 if (selected > -1 && selected != absoluteAdapterPosition) {
                     getItem(selected).eventState = 0
                     notifyItemChanged(selected)
-                    selected = absoluteAdapterPosition
                 }
 
+                selected = absoluteAdapterPosition
                 binding.eventDialogRadioButton.isChecked = true
                 onClickItemListener?.invoke(getItem(absoluteAdapterPosition).id)
             }

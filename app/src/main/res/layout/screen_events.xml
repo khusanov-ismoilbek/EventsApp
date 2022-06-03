@@ -7,17 +7,14 @@
     android:background="#141220"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.MaterialToolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?android:actionBarSize"
-
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/menu_toolbar"
         app:title="@string/events"
-        app:titleTextColor="@color/white">
-
-    </com.google.android.material.appbar.MaterialToolbar>
+        app:titleTextColor="@color/white"/>
 
     <View
         android:layout_width="match_parent"

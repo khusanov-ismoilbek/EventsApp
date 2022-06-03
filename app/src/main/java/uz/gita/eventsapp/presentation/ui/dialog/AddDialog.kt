@@ -3,6 +3,7 @@ package uz.gita.eventsapp.presentation.ui.dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,14 +42,8 @@ class AddDialog : DialogFragment(R.layout.dialog_add) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.getAllDisableEventsLiveData.observe(
-            viewLifecycleOwner,
-            getAllDisableEventsObserver
-        )
-        viewModel.onClickDisableEventsLiveData.observe(
-            viewLifecycleOwner,
-            onCLickDisableEventsObserver
-        )
+        viewModel.getAllDisableEventsLiveData.observe(viewLifecycleOwner, getAllDisableEventsObserver)
+        viewModel.closeDialogLiveData.observe(viewLifecycleOwner, closeDialogObserver)
 
         adapter.setOnClickItemListener {
             pos = it
@@ -57,21 +52,20 @@ class AddDialog : DialogFragment(R.layout.dialog_add) {
             }
         }
 
-        binding.okBtn.setOnClickListener {
-            viewModel.onClickDisableEvents(pos)
-            onCLickOkListener?.invoke()
-            dismiss()
-        }
+        binding.okBtn.setOnClickListener { viewModel.updateEventStateToEnable(pos) }
         binding.cancelBtn.setOnClickListener { dismiss() }
     }
 
     private val getAllDisableEventsObserver = Observer<List<EventsData>> {
+        Log.d("CCC", "getAllDisableEventsObserver: $it")
         adapter.submitList(it)
         binding.recyclerDialog.adapter = adapter
         binding.recyclerDialog.layoutManager = LinearLayoutManager(requireContext())
     }
-    private val onCLickDisableEventsObserver = Observer<Int> {
-        viewModel.updateEventStateToEnable(it)
+
+    private val closeDialogObserver = Observer<Unit> {
+        onCLickOkListener?.invoke()
+        dismiss()
     }
 
     fun setOnClickOkClickListener(block: () -> Unit) {

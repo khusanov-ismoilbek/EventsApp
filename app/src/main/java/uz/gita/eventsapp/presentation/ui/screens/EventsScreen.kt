@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -72,6 +73,7 @@ class EventsScreen : Fragment(R.layout.screen_events) {
     }
 
     private val getAllEnableEventsObserver = Observer<List<EventsData>> { list ->
+        Log.d("CCC", "getAllEnableEventsObserver: $list")
         val arrayList = ArrayList<String>()
 
         for (i in list.indices) {

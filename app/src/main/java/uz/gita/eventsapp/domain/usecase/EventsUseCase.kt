@@ -9,7 +9,7 @@ interface EventsUseCase {
 
     fun getAllEnableEvents(): Flow<List<EventsData>>
 
-    fun updateEventStateToDisable(eventId: Int): Flow<List<EventsData>>
+    fun updateEventStateToDisable(eventId: Int): Flow<Unit>
 
-    fun updateEventStateToEnable(eventId: Int): Flow<List<EventsData>>
+    fun updateEventStateToEnable(eventId: Int): Flow<Unit>
 }

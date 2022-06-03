@@ -29,20 +29,16 @@ class EventsUseCaseImpl
         emit(result)
     }.flowOn(Dispatchers.IO)
 
-    override fun updateEventStateToDisable(eventId: Int) = flow<List<EventsData>> {
+    override fun updateEventStateToDisable(eventId: Int) = flow<Unit> {
         repository.updateEventStateToDisable(eventId)
-        val result = repository.getAllEnableEvents().map {
-            it.eventsEntityToEventsData()
-        }
-        emit(result)
+        emit(Unit)
     }.flowOn(Dispatchers.IO)
 
-    override fun updateEventStateToEnable(eventId: Int) = flow<List<EventsData>> {
+    override fun updateEventStateToEnable(eventId: Int) = flow<Unit> {
         repository.updateEventStateToEnable(eventId)
-        val result = repository.getAllDisableEvents().map {
-            it.eventsEntityToEventsData()
-        }
-        emit(result)
+        emit(Unit)
     }.flowOn(Dispatchers.IO)
 
 }
+
+

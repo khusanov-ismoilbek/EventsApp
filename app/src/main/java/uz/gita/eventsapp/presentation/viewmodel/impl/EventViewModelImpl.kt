@@ -1,5 +1,6 @@
 package uz.gita.eventsapp.presentation.viewmodel.impl
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -36,13 +37,14 @@ class EventViewModelImpl
 
     override fun onCLickOkBtnOfAddDialog() {
         useCase.getAllEnableEvents().onEach {
+            Log.d("CCC", "getAllEnableEvents eventViewModel: $it")
             getAllEnableEventsLiveData.value = it
         }.launchIn(viewModelScope)
     }
 
     override fun updateEventStateToDisable(eventId: Int) {
         useCase.updateEventStateToDisable(eventId).onEach {
-            getAllEnableEventsLiveData.value = it
+            loadEventData()
         }.launchIn(viewModelScope)
     }
 

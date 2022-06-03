@@ -1,6 +1,7 @@
 package uz.gita.eventsapp.presentation.viewmodel.impl
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -24,15 +25,11 @@ class AddDialogViewModelImpl
     }
 
     override val getAllDisableEventsLiveData = MutableLiveData<List<EventsData>>()
-    override val onClickDisableEventsLiveData = MutableLiveData<Int>()
-
-    override fun onClickDisableEvents(pos: Int) {
-        onClickDisableEventsLiveData.value = pos
-    }
+    override val closeDialogLiveData = MutableLiveData<Unit>()
 
     override fun updateEventStateToEnable(eventId: Int) {
         useCase.updateEventStateToEnable(eventId).onEach {
-            getAllDisableEventsLiveData.value = it
+            closeDialogLiveData.value = Unit
         }.launchIn(viewModelScope)
     }
 

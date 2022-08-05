@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="uz.gita.eventsapp">
+    package="uz.gita.eventsgita">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
@@ -17,7 +17,7 @@
         android:theme="@style/Theme.EventsApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name="uz.gita.eventsgita.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
         </activity>
 
         <receiver
-            android:name=".presentation.broadcast.EventReceiver"
+            android:name="uz.gita.eventsgita.presentation.broadcast.EventReceiver"
             android:enabled="true"
             android:exported="true">
 
@@ -52,7 +52,7 @@
         </receiver>
 
         <service
-            android:name=".presentation.service.EventService"
+            android:name="uz.gita.eventsgita.presentation.service.EventService"
             android:exported="false"
             android:foregroundServiceType="dataSync" />
     </application>

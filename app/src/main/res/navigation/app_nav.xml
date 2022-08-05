@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/eventsScreen"
-        android:name="uz.gita.eventsapp.presentation.ui.screens.EventsScreen"
+        android:name="uz.gita.eventsgita.presentation.ui.screens.EventsScreen"
         android:label="EventsScreen" />
 </navigation>
